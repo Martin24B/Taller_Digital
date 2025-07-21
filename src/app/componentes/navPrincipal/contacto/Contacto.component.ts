@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SecContactosComponent } from '../../secContacto/SecContacto.component';
+import { SecContactosComponent } from '../../secContacto/SecContactos.component';
 
 @Component({
   selector: 'app-contacto-generico',

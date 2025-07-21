@@ -6,7 +6,7 @@ import { MedicionComponent } from './componentes/navPrincipal/medicion/Medicion.
 import { ProteccionComponent } from './componentes/navPrincipal/proteccion/Proteccion.component';
 import { SuministrosComponent } from './componentes/navPrincipal/suministros/Suministros.component';
 import { SecUsuariosComponent } from './componentes/secUsuario/SecUsuarios.component';
-import { SecContactosComponent } from './componentes/secContacto/SecContacto.component';
+import { SecContactosComponent } from './componentes/secContacto/SecContactos.component';
 import { HeaderComponent } from './componentes/header/Header.component';
 import { FooterComponent } from './componentes/footer/Footer.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';

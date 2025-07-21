@@ -3,8 +3,8 @@ import { Component,Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-contactos-generico',
   standalone: true,
-  templateUrl: './SecContacto.component.html',
-  styleUrls: ['./SecContacto.component.css']
+  templateUrl: './SecContactos.component.html',
+  styleUrls: ['./SecContactos.component.css']
 })
 
 export class SecContactosComponent implements OnInit {
