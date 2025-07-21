@@ -3,15 +3,12 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app",
+    "outDir": "./out-tsc/spec",
     "types": [
-      "node"
+      "jasmine"
     ]
   },
   "include": [
     "src/**/*.ts"
-, "src/app/componentes/navPrincipal/suministros"  ],
-  "exclude": [
-    "src/**/*.spec.ts"
   ]
 }

@@ -1,0 +1,10 @@
+<app-contactos-generico>
+  <div>
+    <button (click)="mostrarMenu('quienesSomos')">¿Quiénes somos?</button>
+    <button (click)="mostrarMenu('redesSociales')">Redes Sociales</button>
+  </div>
+  <div *ngIf="mostrarQuienesSomos">
+  </div>
+  <div *ngIf="mostrarRedesSociales">
+  </div>
+</app-contactos-generico>

@@ -1,0 +1,14 @@
+<app-usuarios-generico>
+  <div>
+    <button (click)="mostrarMenu('ingreso')">Ingreso</button>
+    <button (click)="mostrarMenu('registro')">Registro</button>
+  </div>
+
+  <div *ngIf="mostrarIngreso">
+    <app-ingreso></app-ingreso>
+  </div>
+
+  <div *ngIf="mostrarRegistro">
+    <app-registro></app-registro>
+  </div>
+</app-usuarios-generico>

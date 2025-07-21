@@ -1,0 +1,35 @@
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: 10px 0;
+  margin: 0;
+  background-color: #e8f0fe; 
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+nav ul li button {
+  background-color: #ffffff;
+  border: 1px solid #007bff;
+  color: #007bff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+nav ul li button:hover,
+nav ul li button:focus {
+  background-color: #007bff;
+  color: white;
+  outline: none;
+}
+
+nav ul li button:active {
+  transform: scale(0.97);
+}

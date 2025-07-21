@@ -1,0 +1,78 @@
+<app-header></app-header>
+<!-- Menú de navegación -->
+<app-menu-de-ventas (cambioContenido)="onCambioContenido($event)"></app-menu-de-ventas>
+<!-- Submenús por categoría seleccionada -->
+<nav *ngIf="categoriaActual() === 'herramientas'">
+  <ul>
+    <li><button (click)="onCambioContenido({ categoria: 'herramientas', subcategoria: 'manuales' })">MANUALES</button>
+    </li>
+    <li><button
+        (click)="onCambioContenido({ categoria: 'herramientas', subcategoria: 'electricas' })">ELÉCTRICAS</button></li>
+    <li><button
+        (click)="onCambioContenido({ categoria: 'herramientas', subcategoria: 'industriales' })">INDUSTRIALES</button>
+    </li>
+  </ul>
+</nav>
+
+<nav *ngIf="categoriaActual() === 'medicion'">
+  <ul>
+    <li><button (click)="onCambioContenido({ categoria: 'medicion', subcategoria: 'niveles' })">NIVELES</button></li>
+    <li><button (click)="onCambioContenido({ categoria: 'medicion', subcategoria: 'cintas' })">CINTAS MÉTRICAS</button>
+    </li>
+    <li><button
+        (click)="onCambioContenido({ categoria: 'medicion', subcategoria: 'calibradores' })">CALIBRADORES</button></li>
+    <li><button
+        (click)="onCambioContenido({ categoria: 'medicion', subcategoria: 'transportadores' })">TRANSPORTADORES</button>
+    </li>
+    <li><button (click)="onCambioContenido({ categoria: 'medicion', subcategoria: 'reglas' })">REGLAS</button></li>
+  </ul>
+</nav>
+
+<nav *ngIf="categoriaActual() === 'proteccion'">
+  <ul>
+    <li><button (click)="onCambioContenido({ categoria: 'proteccion', subcategoria: 'ropa' })">ROPA</button></li>
+    <li><button (click)="onCambioContenido({ categoria: 'proteccion', subcategoria: 'guantes' })">GUANTES</button></li>
+    <li><button (click)="onCambioContenido({ categoria: 'proteccion', subcategoria: 'cascos' })">CASCOS</button></li>
+  </ul>
+</nav>
+
+<nav *ngIf="categoriaActual() === 'suministros'">
+  <ul>
+    <li><button
+        (click)="onCambioContenido({ categoria: 'suministros', subcategoria: 'pegamentos' })">PEGAMENTOS</button></li>
+    <li><button (click)="onCambioContenido({ categoria: 'suministros', subcategoria: 'aceites' })">ACEITES</button></li>
+    <li><button (click)="onCambioContenido({ categoria: 'suministros', subcategoria: 'lijas' })">LIJAS</button></li>
+    <li><button (click)="onCambioContenido({ categoria: 'suministros', subcategoria: 'clavos' })">CLAVOS</button></li>
+  </ul>
+</nav>
+
+<nav *ngIf="categoriaActual() === 'usuarios'">
+  <ul>
+    <li><button (click)="onCambioContenido({ categoria: 'usuarios', subcategoria: 'ingreso' })">INGRESO</button></li>
+    <li><button (click)="onCambioContenido({ categoria: 'usuarios', subcategoria: 'registro' })">REGISTRO</button></li>
+  </ul>
+</nav>
+
+<nav *ngIf="categoriaActual() === 'contactos'">
+  <ul>
+    <li><button (click)="onCambioContenido({ categoria: 'contactos', subcategoria: 'quienesSomos' })">QUIÉNES
+        SOMOS</button></li>
+    <li><button (click)="onCambioContenido({ categoria: 'contactos', subcategoria: 'redesSociales' })">REDES
+        SOCIALES</button></li>
+  </ul>
+</nav>
+
+<!-- Lista de productos de la categoría seleccionada -->
+<main>
+  <ng-container [ngSwitch]="categoriaActual()">
+    <app-herramientas-generico *ngSwitchCase="'herramientas'"
+      [tipo]="subcategoriaHerramientas()"></app-herramientas-generico>
+    <app-medicion-generico *ngSwitchCase="'medicion'" [tipo]="subcategoriaMedicion()"></app-medicion-generico>
+    <app-proteccion-generico *ngSwitchCase="'proteccion'" [tipo]="subcategoriaProteccion()"></app-proteccion-generico>
+    <app-suministros-generico *ngSwitchCase="'suministros'"
+      [tipo]="subcategoriaSuministros()"></app-suministros-generico>
+    <app-usuarios-generico *ngSwitchCase="'usuarios'" [tipo]="subcategoriaUsuarios()"></app-usuarios-generico>
+    <app-contactos-generico *ngSwitchCase="'contactos'" [tipo]="subcategoriaContactos()"></app-contactos-generico>
+  </ng-container>
+</main>
+<app-footer></app-footer>

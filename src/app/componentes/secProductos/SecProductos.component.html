@@ -1,0 +1,23 @@
+<section class="productos">                    
+  <h1>PRODUCTOS DISPONIBLES...</h1>
+  <div class="contenedor-productos">   
+    <div class="producto" *ngFor="let item of productos">
+      <h3>{{ item.nombre }}</h3>
+     <img [src]="item.portada" alt="{{ item.nombre }}" width="150" />
+
+      <p><strong>Marca:</strong> {{ item.marca }}</p>
+      <p><strong>Proveedor:</strong> {{ item.proveedor }}</p>
+      <p><strong>Precio:</strong> ${{ item.precio }}</p>
+      <label>
+        Cantidad:
+        <select [(ngModel)]="cantidadSeleccionada[item.nombre]">
+          <option *ngFor="let n of getCantidades(item.stock)" [value]="n">
+            {{ n }}
+          </option>
+        </select>
+      </label>
+      <button (click)="comprarAhora(item)">Comprar ahora</button>
+      <button (click)="agregarAlCarrito(item)">Agregar al carrito</button>
+    </div>
+  </div>
+</section>
