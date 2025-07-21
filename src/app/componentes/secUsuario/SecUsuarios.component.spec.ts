@@ -1,5 +1,5 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { SecUsuariosComponent } from './secUsuario.component';
+import { SecUsuariosComponent } from './SecUsuarios.component';
 
 describe('SecUsuariosComponent', () => {
   let component: SecUsuariosComponent;
@@ -7,7 +7,7 @@ describe('SecUsuariosComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [SecUsuariosComponent] 
+      imports: [SecUsuariosComponent],
     }).compileComponents();
   }));
 

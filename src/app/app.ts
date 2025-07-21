@@ -5,16 +5,27 @@ import { HerramientasComponent } from './componentes/navPrincipal/herramientas/H
 import { MedicionComponent } from './componentes/navPrincipal/medicion/Medicion.component';
 import { ProteccionComponent } from './componentes/navPrincipal/proteccion/Proteccion.component';
 import { SuministrosComponent } from './componentes/navPrincipal/suministros/Suministros.component';
-import { SecUsuariosComponent } from './componentes/secUsuario/secUsuario.component';
-import { SecContactosComponent } from './componentes/secContacto/secContacto.component';
+import { SecUsuariosComponent } from './componentes/secUsuario/SecUsuarios.component';
+import { SecContactosComponent } from './componentes/secContacto/SecContacto.component';
 import { HeaderComponent } from './componentes/header/Header.component';
 import { FooterComponent } from './componentes/footer/Footer.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 
 // Tipos específicos para cada categoría
-type Categoria = | 'herramientas' | 'medicion' | 'proteccion' | 'suministros' | 'usuarios' | 'contactos';
+type Categoria =
+  | 'herramientas'
+  | 'medicion'
+  | 'proteccion'
+  | 'suministros'
+  | 'usuarios'
+  | 'contactos';
 type TipoHerramienta = 'manuales' | 'electricas' | 'industriales';
-type TipoMedicion = | 'niveles' | 'cintas' | 'calibradores' | 'transportadores' | 'reglas';
+type TipoMedicion =
+  | 'niveles'
+  | 'cintas'
+  | 'calibradores'
+  | 'transportadores'
+  | 'reglas';
 type TipoProteccion = 'ropa' | 'guantes' | 'cascos';
 type TipoSuministro = 'pegamentos' | 'aceites' | 'lijas' | 'clavos';
 type TipoUsuarios = 'ingreso' | 'registro';
@@ -23,11 +34,22 @@ type TipoContactos = 'quienesSomos' | 'redesSociales';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, MenuDeVentas, HerramientasComponent, MedicionComponent, ProteccionComponent, SuministrosComponent, HeaderComponent, FooterComponent, SecUsuariosComponent, SecContactosComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MenuDeVentas,
+    HerramientasComponent,
+    MedicionComponent,
+    ProteccionComponent,
+    SuministrosComponent,
+    HeaderComponent,
+    FooterComponent,
+    SecUsuariosComponent,
+    SecContactosComponent,
+  ],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
-
 export class App {
   protected readonly title = signal('Taller-Digital');
   // Señal para la categoría seleccionada por el usuario
@@ -49,7 +71,17 @@ export class App {
       if (partes[0] === 'inicio') {
         const categoria = partes[1] as Categoria | undefined;
         const subcategoria = partes[2] || null;
-        if ( categoria && ['herramientas','medicion','proteccion','suministros','usuarios', 'contactos'].includes(categoria)) {
+        if (
+          categoria &&
+          [
+            'herramientas',
+            'medicion',
+            'proteccion',
+            'suministros',
+            'usuarios',
+            'contactos',
+          ].includes(categoria)
+        ) {
           this.onCambioContenido({ categoria, subcategoria });
         }
       }
@@ -57,7 +89,10 @@ export class App {
   }
 
   // Control se los recursos del menu de navegacion elegidos por el usuario
-  public onCambioContenido(event: {categoria: Categoria;subcategoria: string | null;}) {
+  public onCambioContenido(event: {
+    categoria: Categoria;
+    subcategoria: string | null;
+  }) {
     this.categoriaActual.set(event.categoria);
     // Se resetean todas las subcategorías para evitar errores
     this.subcategoriaHerramientas.set(null);
@@ -70,7 +105,9 @@ export class App {
     // Asignar subcategoría según la categoría elegida en el menu de navegacion
     switch (event.categoria) {
       case 'herramientas':
-        this.subcategoriaHerramientas.set(event.subcategoria as TipoHerramienta,);
+        this.subcategoriaHerramientas.set(
+          event.subcategoria as TipoHerramienta,
+        );
         break;
       case 'medicion':
         this.subcategoriaMedicion.set(event.subcategoria as TipoMedicion);

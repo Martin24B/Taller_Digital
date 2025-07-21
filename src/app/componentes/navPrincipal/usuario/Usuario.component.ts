@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SecUsuariosComponent } from '../../secUsuario/secUsuario.component';
+import { SecUsuariosComponent } from '../../secUsuario/SecUsuarios.component';
 import { Ingreso } from '../ingreso/ingreso';
 import { Registro } from '../registro/registro';
 
@@ -9,9 +9,8 @@ import { Registro } from '../registro/registro';
   standalone: true,
   imports: [CommonModule, SecUsuariosComponent, Ingreso, Registro],
   templateUrl: './Usuario.component.html',
-  styleUrls: ['./Usuario.component.css']
+  styleUrls: ['./Usuario.component.css'],
 })
-
 export class UsuarioComponent {
   public mostrarIngreso = false;
   public mostrarRegistro = false;
